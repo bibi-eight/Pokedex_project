@@ -1,13 +1,12 @@
 const offset = 0
 const limit = 10
 
-// const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-
+const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
 
 function convertPokemonToHtml(pokemon)
 {
-    const div = document.createElement("div")
-    div.classList.add("pokemons")
+    // const div = document.createElement("div")
+    // div.classList.add("pokemons")
 
     const html = `
         <li class = "pokemon">
@@ -23,44 +22,33 @@ function convertPokemonToHtml(pokemon)
             </div>
         </li> `
 
-    div.innerHTML = html
+    // div.innerHTML = html
 
-    pokemonList.appendChild(div)
+    // pokemonList.appendChild(div)
 }
 
 const pokemonList = document.getElementById('pokemonList')
 
-const pokemon = async (id) => 
-{
-    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+// const pokemon = async (id) => 
+// {
+//     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
 
-    await fetch(url).then(pokemon => pokemon.json()).then(pokemon => convertPokemonToHtml(pokemon))
-}
+//     await fetch(url).then(pokemon => pokemon.json()).then(pokemon => convertPokemonToHtml(pokemon))
+// }
 
-async function pegaPokemon()
-{
-    for(let i = 1; i < limit; i++)
-    {
-        await pokemon(i)
-    }
-}
+// async function pegaPokemon()
+// {
+//     for(let i = 1; i < limit; i++)
+//     {
+//         await pokemon(i)
+//     }
+// }
 
-pegaPokemon()
+// pegaPokemon()
 
-pokemon()
+// pokemon()
 
-// fetch(url)
-//     .then((response) => response.json())
-//     .then((jsonBody) => jsonBody.results)
-//     .then((pokemons) => {
-//         for(let i = 1; i < pokemonList.lenght; i++)
-//         {
-//             const pokemon = pokemons[i]
-//             console.log(convertPokemonToHtml(pokemon))
-//             // pokemonList.innerHTML += convertPokemonToHtml(pokemon)
-//         }
-
-//     })
-//     .catch((error) => console.error(error))
-
-//     console.log(pokemonList)
+pokeapi.getPokemons().then((pokemons = []) => {
+        const newHtml = pokemonList.innerHTML += pokemons.map(convertPokemonToHtml).join('')
+        pokemonList.innerHTML = newHtml
+    })
