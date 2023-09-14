@@ -25,6 +25,10 @@ function convertPokemonToHtml(pokemon)
     // div.innerHTML = html
 
     // pokemonList.appendChild(div)
+
+    console.log(html);
+    
+    return html
 }
 
 const pokemonList = document.getElementById('pokemonList')
